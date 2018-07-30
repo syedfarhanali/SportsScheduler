@@ -12,7 +12,7 @@ import java.util.*;
  * Created by farhans on 7/30/18.
  */
 @RunWith(MockitoJUnitRunner.class)
-public class BaseTest {
+public abstract class BaseTest {
 
     Map<Integer,List<Event>> schedule =  new HashMap<Integer,List<Event>>();
 

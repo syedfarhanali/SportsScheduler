@@ -44,7 +44,9 @@ public class OrganizeEventService {
                 currentDayTeams.add(team1);
                 currentDayTeams.add(team2);
             }else if(inCurrentDayTeams){
-                schedule.put(day,null);
+                if(currentDayTeams.isEmpty()){
+                    schedule.put(day,null);
+                }
                 day = day + 2;
                 allEvents.get(iteration).setDay(day);
                 schedule.put(day, new ArrayList<>(Arrays.asList(allEvents.get(iteration))));

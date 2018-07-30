@@ -3,7 +3,7 @@ $( document ).ready(function() {
     $("#getSchedule").click(function(){
         var count = $("#teamCount").val();
         if(count <=1){
-            alert($.i18n.prop('home_team'))
+            alert($.i18n.prop('count_alert'))
         }else{
             $.ajax({
                 method: "POST",
