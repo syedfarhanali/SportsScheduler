@@ -1,4 +1,4 @@
-package com.sports.SportsScheduler;
+package com.sports;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
