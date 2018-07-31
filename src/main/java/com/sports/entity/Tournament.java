@@ -1,5 +1,6 @@
 package com.sports.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,11 @@ public class Tournament {
     List<Event> events;
 
     String uniqueId;
+
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    User user;
 
     @Transient
     Map<Integer,List<Event>> schedule;

@@ -5,6 +5,7 @@ import com.sports.service.TournamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 /**
@@ -19,7 +20,8 @@ public class TournamentController {
 
     @RequestMapping(method = RequestMethod.POST)
     public Tournament generateTournament(@RequestParam Integer teamCount,
-                                       @RequestParam Date startDate){
+                                       @RequestParam Date startDate,
+                                         HttpSession session){
        return tournamentService.generateTournament(teamCount,startDate);
     }
 

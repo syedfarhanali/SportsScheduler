@@ -4,9 +4,12 @@ import com.sports.entity.Event;
 import com.sports.entity.Tournament;
 import com.sports.repository.TournamentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -24,10 +27,15 @@ public class TournamentService {
     @Autowired
     RoundRobinSchedulerServiceImpl schedulerService;
 
+    @Autowired
+    UserService userService;
+
     @Transactional
     public Tournament generateTournament(Integer teamCount, Date startDate){
         Map<Integer,List<Event>> schedule =  schedulerService.scheduleTournament(teamCount,startDate);
-        Tournament t  = tournamentRepository.save(new Tournament());
+        Tournament t = new Tournament();
+        t.setUser(userService.getCurrentUser());
+        t  = tournamentRepository.save(t);
         t.updateDetails(schedule);
         t = tournamentRepository.save(t);
         return t;

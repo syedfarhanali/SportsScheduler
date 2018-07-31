@@ -27,4 +27,5 @@ Build a RESTful service that generates the round robin schedule for tournament
 - Encrypt database password.
 - Add algorithm for next rounds of the tournament.
 - Containerize the application using Docker
-- Use Frontend frameworks like React/Angular for better experience.
+- Use Frontend frameworks like React/Angular for better experience
+- Add documentation for important methods
